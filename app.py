@@ -1,11 +1,10 @@
 import pickle
 from io import TextIOWrapper
-
+import pandas as pd
 from sklearn.model_selection  import  train_test_split
 import csv,os
 import numpy as np
-import pandas
-import pandas as pd
+#import pandas as pd
 from flask import Flask, render_template, request, url_for
 app = Flask(__name__)
 l = pickle.load(open('testpred', 'rb'))
@@ -32,7 +31,7 @@ def upload_file():
     print(df)
     data = np.array(df)
     print(data)
-    return f"<h1>f{model.predict(data)}</h1>"
+    return f"<h1>{model.predict(data)}</h1>"
     # if uploaded_file.filename != '':
     #     uploaded_file.save(uploaded_file.filename)
     # #return redirect(url_for('index'))
